@@ -1,4 +1,5 @@
-import react, {useRef, useEffect, useState} from 'react';
+// logs in with facial recongnition, then posts to be able to get into news feed
+import React, {useRef, useEffect, useState} from 'react';
 
 function App() {
   const videoRef = useRef(null)
@@ -49,12 +50,18 @@ function App() {
 
   return (
     <div className="App">
+      <h1 className='textAbovePhoto'>
+        Life is happening Now, capture and share it!
+      </h1>
       <div className="camera">
-        <video ref={videoRef}></video>
-        <button onClick={takePhoto}>SNAP!</button>
+        <video ref={videoRef}/>
+        <button className='now' onClick={takePhoto}>
+          {/* <img src={'public/logo.png'}/> */}
+          Capture Now!
+        </button>
         <div className={'result' + (hasPhoto ? 'hasPhoto' : '')}>
           <canvas ref={photoRef}></canvas>
-          <button onClick={closePhoto}>CLOSE!</button>
+          <button onClick={closePhoto}>Remove Now ?</button>
         </div>
       </div>
     </div>
